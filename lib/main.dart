@@ -1,3 +1,4 @@
+import 'package:acai/src/shared/themes/my_theme.dart';
 import 'package:acai/src/util/page_routes.dart';
 import 'package:acai/src/util/routes.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: lightTheme,
+      darkTheme: darkTheme,
       initialRoute: AppRoutes.home,
       getPages: AppPages.pages,
     );
