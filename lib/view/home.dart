@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:acai/model/login.dart';
 import 'package:acai/view/component/text_controller_component.dart';
 import 'package:flutter/material.dart';
