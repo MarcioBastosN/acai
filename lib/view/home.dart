@@ -1,4 +1,5 @@
 import 'package:acai/model/login.dart';
+import 'package:acai/src/util/routes.dart';
 import 'package:acai/view/component/text_controller_component.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,7 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: l.valide.value == true ? Colors.green : Colors.red,
-        onPressed: () => {},
+        onPressed: () => {
+          l.valide.value == true ? Get.toNamed(AppRoutes.cadastroLocal) : null,
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
