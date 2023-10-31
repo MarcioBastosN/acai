@@ -10,6 +10,7 @@ class MyCustonText extends StatefulWidget {
   final FocusNode? focus;
   final bool obscureText;
   final void Function(PointerDownEvent)? onTapOutside;
+  final String? Function(String?)? validator;
 
   const MyCustonText({
     super.key,
@@ -22,6 +23,7 @@ class MyCustonText extends StatefulWidget {
     this.submit,
     this.onTapOutside,
     this.obscureText = false,
+    this.validator,
   });
 
   @override
@@ -46,6 +48,7 @@ class _MyCustonTextState extends State<MyCustonText> {
         onEditingComplete: widget.submit,
         focusNode: widget.focus,
         obscureText: secret,
+        validator: widget.validator,
         cursorColor: Theme.of(context).colorScheme.primary,
         style: TextStyle(color: Theme.of(context).colorScheme.primary),
         decoration: InputDecoration(
@@ -80,6 +83,11 @@ class _MyCustonTextState extends State<MyCustonText> {
                   ),
                 )
               : null,
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Theme.of(context).colorScheme.error),
+            borderRadius: const BorderRadius.all(Radius.circular(18)),
+          ),
+          errorStyle: const TextStyle(fontWeight: FontWeight.bold),
           isDense: true,
           label: Text(widget.label),
           labelStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
